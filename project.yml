@@ -1,0 +1,39 @@
+name: JustGetIt
+options:
+  deploymentTarget:
+    macOS: "26.0"
+  createIntermediateGroups: true
+  bundleIdPrefix: io.github.cheginit
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MACOSX_DEPLOYMENT_TARGET: "26.0"
+    ARCHS: arm64
+    ONLY_ACTIVE_ARCH: YES
+    CODE_SIGN_STYLE: Automatic
+targets:
+  JustGetIt:
+    type: application
+    platform: macOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: Sources
+      - path: AppIcon.icon
+        type: file
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.cheginit.JustGetIt
+        PRODUCT_NAME: JustGetIt
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        SWIFT_STRICT_CONCURRENCY: complete
+        ENABLE_HARDENED_RUNTIME: YES
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_LSUIElement: NO
+        INFOPLIST_KEY_CFBundleDisplayName: JustGetIt
+        DEAD_CODE_STRIPPING: YES
+        SWIFT_EMIT_LOC_STRINGS: NO
+    entitlements:
+      path: JustGetIt.entitlements
+      properties:
+        com.apple.security.network.client: true
+        com.apple.security.files.user-selected.read-write: true

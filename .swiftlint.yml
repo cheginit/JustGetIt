@@ -1,0 +1,53 @@
+# SwiftLint config for JustGetIt (Swift 6, SwiftUI macOS app).
+# Pairs with .swift-format (formatting); SwiftLint here hunts bug smells.
+
+excluded:
+  - build
+  - .build
+  - DerivedData
+  - JustGetIt.xcodeproj
+  - .smoketest                  # standalone dense verification script, not app code
+
+line_length:
+  warning: 120
+  error: 200
+  ignores_comments: true
+  ignores_urls: true
+
+identifier_name:
+  min_length: 2                 # allow id, ok
+  excluded: [id, x, y, r, g, b, to]
+
+type_name:
+  min_length: 3
+
+disabled_rules:
+  - todo                        # don't nag on TODO/FIXME
+  - trailing_comma
+  - file_length                 # AppModel is large but cohesive; split if it keeps growing
+  - type_body_length
+
+function_parameter_count:
+  warning: 8                    # engine start/execute take 7 by design
+
+cyclomatic_complexity:
+  warning: 16                   # the engine-event switch in apply(_:)
+
+function_body_length:
+  warning: 60                   # execute() is cohesive orchestration (probe→space→run→finalize)
+
+opt_in_rules:
+  - force_unwrapping            # surface URL(string:)! / .first! — the "bug smell" lint
+  - empty_count
+  - empty_string
+  - first_where
+  - last_where
+  - contains_over_first_not_nil
+  - redundant_nil_coalescing
+  - closure_spacing
+  - explicit_init
+  - toggle_bool
+  - fatal_error_message
+  - sorted_first_last
+
+reporter: "xcode"

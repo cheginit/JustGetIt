@@ -1,0 +1,12 @@
+#!/bin/sh
+# Pre-commit: run SwiftLint. Blocks the commit on error-severity violations;
+# warnings (e.g. the intentional force-unwraps) pass. Enable with:
+#   git config core.hooksPath .githooks
+if command -v swiftlint >/dev/null 2>&1; then
+    if ! swiftlint lint --quiet; then
+        echo "SwiftLint found error-severity violations. Fix them (or 'swiftlint --fix'), then re-commit."
+        exit 1
+    fi
+else
+    echo "swiftlint not installed (brew install swiftlint) — skipping lint."
+fi
