@@ -9,6 +9,10 @@ BUILD="build"
 STAGE="$BUILD/dmg"
 DMG="$APP.dmg"
 
+# Optional version override (CI passes the git tag). Falls back to project.yml.
+VER_ARG=""; [ -n "${VERSION:-}" ] && VER_ARG="MARKETING_VERSION=$VERSION"
+BLD_ARG=""; [ -n "${BUILD_NUMBER:-}" ] && BLD_ARG="CURRENT_PROJECT_VERSION=$BUILD_NUMBER"
+
 xcodegen generate
 
 xcodebuild \
@@ -19,6 +23,7 @@ xcodebuild \
   CODE_SIGN_IDENTITY="-" \
   CODE_SIGN_STYLE=Manual \
   DEVELOPMENT_TEAM="" \
+  $VER_ARG $BLD_ARG \
   clean build
 
 APP_PATH="$BUILD/Build/Products/Release/$APP.app"

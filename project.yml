@@ -24,7 +24,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: io.github.cheginit.JustGetIt
         PRODUCT_NAME: JustGetIt
-        MARKETING_VERSION: "1.0"
+        MARKETING_VERSION: "0.1.0"
         CURRENT_PROJECT_VERSION: "1"
         INFOPLIST_KEY_NSHumanReadableCopyright: "Copyright © 2026 Taher Chegini. MIT License."
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
