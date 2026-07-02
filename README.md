@@ -38,6 +38,17 @@ follow, but the guiding idea stays the same: just get it.
   glass stats bar, and a menu-bar popover with live progress.
 - **Notifications** on completion and failure.
 
+## Installation
+
+1. Download the latest release: [JustGetIt.dmg](https://github.com/cheginit/JustGetIt/releases/latest/download/JustGetIt.dmg).
+2. Open the DMG and drag JustGetIt into your Applications folder.
+3. JustGetIt is ad-hoc signed rather than notarized, so macOS quarantines it after
+   download. Clear the quarantine flag once, then open the app normally:
+
+   ```bash
+   xattr -cr /Applications/JustGetIt.app
+   ```
+
 ## Requirements
 
 - macOS 26 or later on Apple Silicon
