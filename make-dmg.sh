@@ -33,10 +33,6 @@ if ! command -v create-dmg >/dev/null 2>&1; then
   exit 1
 fi
 
-# Headless CI has no Finder, so skip the AppleScript window styling there.
-SANDBOX=""
-[ -n "${CI:-}" ] && SANDBOX="--sandbox-safe"
-
 create-dmg \
   --volname "$APP" \
   --volicon "$APP_PATH/Contents/Resources/AppIcon.icns" \
@@ -47,7 +43,6 @@ create-dmg \
   --hide-extension "$APP.app" \
   --hdiutil-quiet \
   --overwrite \
-  $SANDBOX \
   "$DMG" "$STAGE"
 
 echo "Built $DMG. Open it and drag $APP to Applications."
