@@ -7,6 +7,15 @@ with SwiftUI and Liquid Glass, Swift 6 strict concurrency, and SwiftData.
 
 ![JustGetIt download manager window](JustGetIt.png)
 
+## Design
+
+JustGetIt is written in pure Swift with no external dependencies. It is built around
+three goals: performance, reliability, and long-term maintainability. To serve those
+goals the scope is deliberately narrow, which keeps the codebase small and easy to
+reason about, and keeps the maintenance burden low. Today it does one thing well,
+downloading files from URLs that do not require authentication. More capabilities may
+follow, but the guiding idea stays the same: just get it.
+
 ## Features
 
 - **Multi-connection downloads.** Files are split into byte-range chunks fetched over
