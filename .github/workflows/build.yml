@@ -45,4 +45,3 @@ jobs:
         with:
           files: JustGetIt.dmg
           body_path: notes.md
-          prerelease: ${{ startsWith(github.ref_name, 'v0.') }}
