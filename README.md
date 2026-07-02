@@ -5,6 +5,8 @@ with SwiftUI and Liquid Glass, Swift 6 strict concurrency, and SwiftData.
 
 [![Build DMG](https://github.com/cheginit/JustGetIt/actions/workflows/build.yml/badge.svg)](https://github.com/cheginit/JustGetIt/actions/workflows/build.yml)
 
+![JustGetIt download manager window](JustGetIt.png)
+
 ## Features
 
 - **Multi-connection downloads.** Files are split into byte-range chunks fetched over
