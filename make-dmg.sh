@@ -42,7 +42,6 @@ create-dmg \
   --app-drop-link 390 195 \
   --hide-extension "$APP.app" \
   --hdiutil-quiet \
-  --overwrite \
   "$DMG" "$STAGE"
 
 echo "Built $DMG. Open it and drag $APP to Applications."
